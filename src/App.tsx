@@ -10,7 +10,7 @@ import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 
 export type FilterValuesType = 'All' | 'Active' | 'Completed';
-type TodoListType = {
+ export type TodoListType = {
     id: string
     title: string
     filter: FilterValuesType
