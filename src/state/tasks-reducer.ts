@@ -32,8 +32,10 @@ export type ChangeTaskTitleActionType = {
 
 type ActionType = RemoveTasksActionType | AddTaskActionType | ChangeTaskStatusActionType | ChangeTaskTitleActionType | AddTodolistActionType | RemoveTodolistActionType;
 
+const initialState: TasksStateType = {}
 
-export const tasksReducer = (state: TasksStateType, action: ActionType): TasksStateType => {
+
+export const tasksReducer = (state: TasksStateType = initialState, action: ActionType): TasksStateType => {
     switch (action.type) {
 
         case 'REMOVE-TASK': {
@@ -83,7 +85,7 @@ export const tasksReducer = (state: TasksStateType, action: ActionType): TasksSt
         }
         default:
 
-            throw new Error("I don't understand this type")
+            return state;
     }
 }
 

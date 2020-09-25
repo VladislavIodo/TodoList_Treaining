@@ -33,11 +33,13 @@ test('correct todolist should be added', () => {
         {id: todolistId1, title: "What to learn", filter: "All"},
         {id: todolistId2, title: "What to buy", filter: "All"}
     ]
-//@ts-ignore
-    const endState = todolistsReducer(startState, { type: 'ADD-TODOLIST', title: newTodolistTitle})
+
+    const endState = todolistsReducer(startState, addTodolistAC(newTodolistTitle))
 
     expect(endState.length).toBe(3);
-    expect(endState[2].title).toBe(newTodolistTitle);
+    expect(endState[0].title).toBe(newTodolistTitle);
+    expect(endState[0].filter).toBe("All");
+    expect(endState[0].id).toBeDefined();
 });
 
 
@@ -72,7 +74,7 @@ test('correct filter of todolist should be changed', () => {
         {id: todolistId2, title: "What to buy", filter: "All"}
     ]
 
-    const action = changeTodolistFilterAC ( todolistId2, newFilter);
+    const action = changeTodolistFilterAC (newFilter, todolistId2);
 
     const endState = todolistsReducer(startState, action);
 
