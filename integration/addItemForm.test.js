@@ -4,7 +4,7 @@ describe('addItemForm', () => {
         await page.goto('http://localhost:9009/iframe.html?path=/story/additemform-stories--add-item-form-base-example');
         const image = await page.screenshot();
 
-        // api from jest-image-snapshot
+        // API from jest-image-snapshot
         expect(image).toMatchImageSnapshot();
     });
 });
